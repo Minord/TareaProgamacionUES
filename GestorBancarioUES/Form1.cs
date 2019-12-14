@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace GestorBancarioUES
 {
@@ -17,7 +18,7 @@ namespace GestorBancarioUES
         Usuario usuarioActual;
 
         //Base de datos
-        OleDbConnection conexion = new OleDbConnection(@"Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Jose Orellana\Desktop\Tutoria 8\Tutoria 8\Contactos.accdb");
+        OleDbConnection conexion = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Orellana\source\repos\GestorBancarioUES\GestorBancarioUES\data\ProyectoBancario.accdb;Persist Security Info=True");
 
 
 
