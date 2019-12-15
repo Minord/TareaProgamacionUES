@@ -14,10 +14,11 @@ namespace GestorBancarioUES
 {
     public partial class modificarUsuarioForm : Form
     {
-        Usuario usuarioModificado;
+        public Usuario usuarioModificado;
         public modificarUsuarioForm(Usuario usuarioAModificar)
         {
             InitializeComponent();
+            usuarioModificado = usuarioAModificar;
             textBoxNombre.Text = usuarioAModificar.nombres;
             textBoxApellidos.Text = usuarioAModificar.apellidos;
             textBoxEdad.Text = usuarioAModificar.edad.ToString();
@@ -30,6 +31,14 @@ namespace GestorBancarioUES
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
+                usuarioModificado.nombres = textBoxNombre.Text;
+                usuarioModificado.apellidos = textBoxApellidos.Text;
+                usuarioModificado.edad = Int32.Parse(textBoxEdad.Text);
+                usuarioModificado.recidencia = textBoxRecidencia.Text;
+                usuarioModificado.telefono = textBoxTelefono.Text;
+                usuarioModificado.email = textBoxEmail.Text;
+                usuarioModificado.actualizarUsuario();
+
                 Close();
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace GestorBancarioUES
 {
@@ -33,6 +34,7 @@ namespace GestorBancarioUES
             this.recidencia = recidencia;
             this.telefono = telefono;
             this.email = email;
+            this.usuario_id = usuario_id;
         }
 
        
@@ -42,20 +44,61 @@ namespace GestorBancarioUES
             return string.Format("{0} {1}", nombres, apellidos);
         }
 
-        static void registrarEnDB()
+        public int registrarEnDB()
         {
-            //no hacer nada por el momento
-            Console.WriteLine("Se registro el usuario con Id 0");
+            string sql_command = string.Format("INSERT INTO Usuarios (nombres, apellidos, edad, residencia, telefono, email) VALUES ('{0}', '{1}', {2}, '{3}', '{4}', '{5}')",
+                                               nombres, apellidos, edad, recidencia, telefono, email);
+            return DataBase.IUDCommand(sql_command);
+        }
+
+        public void actualizarUsuario() {
+            string sql_command = string.Format("UPDATE Usuarios SET nombres = '{1}', apellidos = '{2}', edad = {3}, residencia = '{4}', telefono = '{5}', email = '{6}' WHERE usuario_id = {0}",
+                                              usuario_id, nombres, apellidos, edad, recidencia, telefono, email);
+
+            DataBase.IUDCommand(sql_command);
         }
 
         static public Usuario buscarEnDBPorId(int id) {
-            return new Usuario("Qelin Porta","Mando loarez",
-                               21, "Col Somewhere, Soyapango",
-                               "0000-0000", "quelin@gmail.com", 0);
+            string sql_command = string.Format("SELECT * from Usuarios WHERE usuario_id = {0}", id);
+
+            DataTable datos = DataBase.SelectCommand(sql_command);
+
+            if (datos.Rows.Count < 1)
+            {
+                Console.WriteLine("Error no se encontro ningun registro en buscar usario por id");
+                return null;
+            }
+
+            DataRow fistRow = datos.Rows[0];
+
+            string nombres = fistRow["nombres"].ToString();
+            string apellidos = fistRow["apellidos"].ToString();
+            int edad = Convert.ToInt32(fistRow["edad"]);
+            string recidencia = fistRow["residencia"].ToString();
+            string telefono = fistRow["telefono"].ToString();
+            string email = fistRow["email"].ToString();
+
+            return new Usuario(nombres, apellidos,
+                               edad, recidencia,
+                               telefono, email, id);
         }
 
-        static public Usuario buscarEnDBPorNombre(string nombreText) {
-            return null;
+        static public DataTable buscarEnDBPorIdTable(int id)
+        {
+            string sql_command = string.Format("SELECT * from Usuarios WHERE usuario_id = {0}", id);
+
+            return DataBase.SelectCommand(sql_command);
+        }
+
+        static public DataTable buscarEnDBPorNombre(string stringBusqueda) {
+
+            string sql_command = string.Format("SELECT * FROM Usuarios WHERE nombres LIKE '%{0}%' OR apellidos LIKE '%{0}%'", stringBusqueda);
+
+            return DataBase.SelectCommand(sql_command);
+        }
+
+        public int getPuntos() {
+            return DataBase.getPuntosByUser(usuario_id);
         }
 
         
