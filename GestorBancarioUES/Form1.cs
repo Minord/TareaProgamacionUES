@@ -17,13 +17,6 @@ namespace GestorBancarioUES
         //Usuario Actual en la ventana
         Usuario usuarioActual;
 
-        //Base de datos
-        OleDbConnection conexion = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Orellana\source\repos\GestorBancarioUES\GestorBancarioUES\data\ProyectoBancario.accdb;Persist Security Info=True");
-
-
-
-        //Ventanas emergentes
-
 
 
         public PanelPrincipal()
@@ -36,35 +29,65 @@ namespace GestorBancarioUES
         }
 
         public void actualizarUsuarioActual() {
+            EnableButtons();
+            labelNombreCompleto.Text = usuarioActual.nombreCompleto();
+            labelEdad.Text = usuarioActual.edad.ToString();
+            labelDireccion.Text = usuarioActual.recidencia;
+            labelTelefono.Text = usuarioActual.telefono;
+            labelEmail.Text = usuarioActual.email;
+            actualizarPuntos();
+        }
 
+        public void EnableButtons() {
+            buttonBorrar.Enabled = true;
+            buttonActualizar.Enabled = true;
+            buttonApertura.Enabled = true;
+            buttonCancelar.Enabled = true;
+            buttonDeposito.Enabled = true;
+            buttonRetiro.Enabled = true;
         }
 
         public void actualizarPuntos() {
+            //TODO crear implementacion de 
+            labelPuntos.Text = "20";
+        }
+
+        public void ActualizarTarjetas() {
 
         }
 
-        public void actualizarTarjetas() {
+        public void ActulizarTansacciones() {
 
         }
 
-        public void actulizarTansacciones() {
-
-        }
-
+        /// <summary>
+        /// Crear el formulario CrearUsuario para obtener informacion
+        /// del nuevo usuario que va ha ser creado con las validaciones
+        /// dentro del nuevo formulario
+        /// </summary>
         private void ButtonCrear_Click(object sender, EventArgs e)
         {
-            CrearUsuarioForm f2 = new CrearUsuarioForm();
-            f2.ShowDialog();
+            CrearUsuarioForm crearUsuarioForm = new CrearUsuarioForm();
+            crearUsuarioForm.ShowDialog();
+
+            if (crearUsuarioForm.GetNuevoUsuario() != null) {
+                usuarioActual = crearUsuarioForm.GetNuevoUsuario();
+                actualizarUsuarioActual();
+            }
         }
 
         private void ButtonBuscar_Click(object sender, EventArgs e)
         {
-
+            
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void ButtonActualizar_Click(object sender, EventArgs e)
         {
-
+            modificarUsuarioForm mu = new modificarUsuarioForm(usuarioActual);
+            mu.ShowDialog();
         }
 
         private void ButtonBorrar_Click(object sender, EventArgs e)

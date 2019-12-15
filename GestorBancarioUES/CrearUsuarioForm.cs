@@ -7,13 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-
 using System.Windows.Forms;
 
 namespace GestorBancarioUES
 {
+
     public partial class CrearUsuarioForm : Form
     {
+        //el objeto usuario que sera retornado de este formulario
+        private Usuario nuevoUsuario;
+
+        //
+        public Usuario GetNuevoUsuario(){
+            return nuevoUsuario;
+        }
+
 
         public CrearUsuarioForm()
         {
@@ -28,6 +36,15 @@ namespace GestorBancarioUES
         private void ButtonCrearUsuario_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled)) {
+                //crear nuevo usuario
+                string nombres = textBoxNombre.Text;
+                string apellidos = textBoxApellidos.Text;
+                int edad = Int32.Parse(textBoxEdad.Text);
+                string recidencia = textBoxRecidencia.Text;
+                string telefono = textBoxTelefono.Text;
+                string email = textBoxEmail.Text;
+
+                nuevoUsuario = new Usuario(nombres, apellidos, edad, recidencia, telefono, email, -1);
                 Close();
             }
         }
@@ -45,7 +62,7 @@ namespace GestorBancarioUES
             {
                 e.Cancel = true;
                 textBoxNombre.Focus();
-                errorProviderCrearUsuario.SetError(textBoxNombre, "No Puede ser un numero");
+                errorProviderCrearUsuario.SetError(textBoxNombre, "No puede ser un numero");
             }
             else {
                 e.Cancel = false;

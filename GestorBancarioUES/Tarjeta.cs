@@ -12,7 +12,7 @@ namespace GestorBancarioUES
         se tiene que cambier por una implementacion
         completa
     */
-    class Tarjeta
+    public class Tarjeta
     {
     }
 }

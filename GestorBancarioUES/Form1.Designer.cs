@@ -28,11 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonCrear = new System.Windows.Forms.Button();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.buttonActualizar = new System.Windows.Forms.Button();
             this.buttonBorrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelPuntos = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelTelefono = new System.Windows.Forms.Label();
+            this.labelDireccion = new System.Windows.Forms.Label();
+            this.labelEdad = new System.Windows.Forms.Label();
+            this.labelNombreCompleto = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,13 +57,13 @@
             this.buttonDeposito = new System.Windows.Forms.Button();
             this.buttonRetiro = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.labelNombreCompleto = new System.Windows.Forms.Label();
-            this.labelEdad = new System.Windows.Forms.Label();
-            this.labelDireccion = new System.Windows.Forms.Label();
-            this.labelTelefono = new System.Windows.Forms.Label();
-            this.labelEmail = new System.Windows.Forms.Label();
-            this.labelPuntos = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCrear
@@ -76,6 +88,7 @@
             // 
             // buttonActualizar
             // 
+            this.buttonActualizar.Enabled = false;
             this.buttonActualizar.Location = new System.Drawing.Point(224, 55);
             this.buttonActualizar.Name = "buttonActualizar";
             this.buttonActualizar.Size = new System.Drawing.Size(117, 27);
@@ -86,6 +99,7 @@
             // 
             // buttonBorrar
             // 
+            this.buttonBorrar.Enabled = false;
             this.buttonBorrar.Location = new System.Drawing.Point(224, 88);
             this.buttonBorrar.Name = "buttonBorrar";
             this.buttonBorrar.Size = new System.Drawing.Size(117, 27);
@@ -114,6 +128,66 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion Usuario";
+            // 
+            // labelPuntos
+            // 
+            this.labelPuntos.AutoSize = true;
+            this.labelPuntos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPuntos.Location = new System.Drawing.Point(55, 213);
+            this.labelPuntos.Name = "labelPuntos";
+            this.labelPuntos.Size = new System.Drawing.Size(24, 13);
+            this.labelPuntos.TabIndex = 12;
+            this.labelPuntos.Text = "NA";
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Location = new System.Drawing.Point(12, 178);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(24, 13);
+            this.labelEmail.TabIndex = 11;
+            this.labelEmail.Text = "NA";
+            // 
+            // labelTelefono
+            // 
+            this.labelTelefono.AutoSize = true;
+            this.labelTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTelefono.Location = new System.Drawing.Point(12, 148);
+            this.labelTelefono.Name = "labelTelefono";
+            this.labelTelefono.Size = new System.Drawing.Size(24, 13);
+            this.labelTelefono.TabIndex = 10;
+            this.labelTelefono.Text = "NA";
+            // 
+            // labelDireccion
+            // 
+            this.labelDireccion.AutoSize = true;
+            this.labelDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDireccion.Location = new System.Drawing.Point(12, 116);
+            this.labelDireccion.Name = "labelDireccion";
+            this.labelDireccion.Size = new System.Drawing.Size(24, 13);
+            this.labelDireccion.TabIndex = 9;
+            this.labelDireccion.Text = "NA";
+            // 
+            // labelEdad
+            // 
+            this.labelEdad.AutoSize = true;
+            this.labelEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEdad.Location = new System.Drawing.Point(12, 83);
+            this.labelEdad.Name = "labelEdad";
+            this.labelEdad.Size = new System.Drawing.Size(24, 13);
+            this.labelEdad.TabIndex = 8;
+            this.labelEdad.Text = "NA";
+            // 
+            // labelNombreCompleto
+            // 
+            this.labelNombreCompleto.AutoSize = true;
+            this.labelNombreCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombreCompleto.Location = new System.Drawing.Point(12, 50);
+            this.labelNombreCompleto.Name = "labelNombreCompleto";
+            this.labelNombreCompleto.Size = new System.Drawing.Size(24, 13);
+            this.labelNombreCompleto.TabIndex = 7;
+            this.labelNombreCompleto.Text = "NA";
             // 
             // label6
             // 
@@ -171,6 +245,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(358, 14);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(241, 176);
@@ -180,6 +255,7 @@
             // 
             // buttonApertura
             // 
+            this.buttonApertura.Enabled = false;
             this.buttonApertura.Location = new System.Drawing.Point(605, 14);
             this.buttonApertura.Name = "buttonApertura";
             this.buttonApertura.Size = new System.Drawing.Size(117, 27);
@@ -190,6 +266,7 @@
             // 
             // buttonCancelar
             // 
+            this.buttonCancelar.Enabled = false;
             this.buttonCancelar.Location = new System.Drawing.Point(605, 55);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(117, 27);
@@ -200,6 +277,7 @@
             // 
             // buttonDeposito
             // 
+            this.buttonDeposito.Enabled = false;
             this.buttonDeposito.Location = new System.Drawing.Point(224, 287);
             this.buttonDeposito.Name = "buttonDeposito";
             this.buttonDeposito.Size = new System.Drawing.Size(117, 27);
@@ -210,6 +288,7 @@
             // 
             // buttonRetiro
             // 
+            this.buttonRetiro.Enabled = false;
             this.buttonRetiro.Location = new System.Drawing.Point(224, 320);
             this.buttonRetiro.Name = "buttonRetiro";
             this.buttonRetiro.Size = new System.Drawing.Size(117, 27);
@@ -220,6 +299,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Location = new System.Drawing.Point(358, 196);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(349, 176);
@@ -227,59 +307,69 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Registro de transacciones";
             // 
-            // labelNombreCompleto
+            // dataGridView1
             // 
-            this.labelNombreCompleto.AutoSize = true;
-            this.labelNombreCompleto.Location = new System.Drawing.Point(12, 54);
-            this.labelNombreCompleto.Name = "labelNombreCompleto";
-            this.labelNombreCompleto.Size = new System.Drawing.Size(22, 13);
-            this.labelNombreCompleto.TabIndex = 7;
-            this.labelNombreCompleto.Text = "NA";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 20);
+            this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.Size = new System.Drawing.Size(228, 150);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // labelEdad
+            // dataGridView2
             // 
-            this.labelEdad.AutoSize = true;
-            this.labelEdad.Location = new System.Drawing.Point(12, 87);
-            this.labelEdad.Name = "labelEdad";
-            this.labelEdad.Size = new System.Drawing.Size(22, 13);
-            this.labelEdad.TabIndex = 8;
-            this.labelEdad.Text = "NA";
-            // 
-            // labelDireccion
-            // 
-            this.labelDireccion.AutoSize = true;
-            this.labelDireccion.Location = new System.Drawing.Point(12, 119);
-            this.labelDireccion.Name = "labelDireccion";
-            this.labelDireccion.Size = new System.Drawing.Size(22, 13);
-            this.labelDireccion.TabIndex = 9;
-            this.labelDireccion.Text = "NA";
-            // 
-            // labelTelefono
-            // 
-            this.labelTelefono.AutoSize = true;
-            this.labelTelefono.Location = new System.Drawing.Point(12, 150);
-            this.labelTelefono.Name = "labelTelefono";
-            this.labelTelefono.Size = new System.Drawing.Size(22, 13);
-            this.labelTelefono.TabIndex = 10;
-            this.labelTelefono.Text = "NA";
-            // 
-            // labelEmail
-            // 
-            this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(12, 185);
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(22, 13);
-            this.labelEmail.TabIndex = 11;
-            this.labelEmail.Text = "NA";
-            // 
-            // labelPuntos
-            // 
-            this.labelPuntos.AutoSize = true;
-            this.labelPuntos.Location = new System.Drawing.Point(12, 226);
-            this.labelPuntos.Name = "labelPuntos";
-            this.labelPuntos.Size = new System.Drawing.Size(22, 13);
-            this.labelPuntos.TabIndex = 12;
-            this.labelPuntos.Text = "NA";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView2.Location = new System.Drawing.Point(7, 19);
+            this.dataGridView2.Name = "dataGridView2";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView2.Size = new System.Drawing.Size(336, 150);
+            this.dataGridView2.TabIndex = 1;
             // 
             // PanelPrincipal
             // 
@@ -297,10 +387,15 @@
             this.Controls.Add(this.buttonActualizar);
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.buttonCrear);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PanelPrincipal";
             this.Text = "Programa de gestion bancaria UES";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,6 +425,8 @@
         private System.Windows.Forms.Label labelDireccion;
         private System.Windows.Forms.Label labelEdad;
         private System.Windows.Forms.Label labelNombreCompleto;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
 

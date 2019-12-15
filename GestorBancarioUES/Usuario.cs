@@ -12,7 +12,7 @@ namespace GestorBancarioUES
         completa
     */
 
-    class Usuario
+    public class Usuario
     {
 
         public string nombres;
@@ -35,14 +35,17 @@ namespace GestorBancarioUES
             this.email = email;
         }
 
-        static void registrarEnDB() {
-            //no hacer nada por el momento
-            Console.WriteLine("Se registro el usuario con Id 0");
-        }
+       
 
         public string nombreCompleto()
         {
-            return nombres + apellidos;
+            return string.Format("{0} {1}", nombres, apellidos);
+        }
+
+        static void registrarEnDB()
+        {
+            //no hacer nada por el momento
+            Console.WriteLine("Se registro el usuario con Id 0");
         }
 
         static public Usuario buscarEnDBPorId(int id) {
