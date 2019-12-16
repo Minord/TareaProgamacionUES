@@ -29,25 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelAc = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxMonto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.comboBoxTarjetas = new System.Windows.Forms.ComboBox();
+            this.buttonHacer = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.errorProviderTransaccion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelNombre = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTransaccion)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelAc
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(120, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Hacer Transacccion";
+            this.labelAc.AutoSize = true;
+            this.labelAc.Location = new System.Drawing.Point(120, 9);
+            this.labelAc.Name = "labelAc";
+            this.labelAc.Size = new System.Drawing.Size(104, 13);
+            this.labelAc.TabIndex = 0;
+            this.labelAc.Text = "Hacer Transacccion";
             // 
             // label2
             // 
@@ -58,12 +59,13 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Monto";
             // 
-            // textBox1
+            // textBoxMonto
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxMonto.Location = new System.Drawing.Point(144, 77);
+            this.textBoxMonto.Name = "textBoxMonto";
+            this.textBoxMonto.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMonto.TabIndex = 2;
+            this.textBoxMonto.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxMonto_Validating);
             // 
             // label3
             // 
@@ -74,50 +76,64 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Seleccionar Tarjeta";
             // 
-            // comboBox1
+            // comboBoxTarjetas
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(144, 123);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(99, 21);
-            this.comboBox1.TabIndex = 4;
+            this.comboBoxTarjetas.FormattingEnabled = true;
+            this.comboBoxTarjetas.Location = new System.Drawing.Point(144, 123);
+            this.comboBoxTarjetas.Name = "comboBoxTarjetas";
+            this.comboBoxTarjetas.Size = new System.Drawing.Size(99, 21);
+            this.comboBoxTarjetas.TabIndex = 4;
+            this.comboBoxTarjetas.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBoxTarjetas_Validating);
             // 
-            // button1
+            // buttonHacer
             // 
-            this.button1.Location = new System.Drawing.Point(123, 193);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "HacerTransaccion";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonHacer.Location = new System.Drawing.Point(123, 193);
+            this.buttonHacer.Name = "buttonHacer";
+            this.buttonHacer.Size = new System.Drawing.Size(112, 23);
+            this.buttonHacer.TabIndex = 5;
+            this.buttonHacer.Text = "HacerTransaccion";
+            this.buttonHacer.UseVisualStyleBackColor = true;
+            this.buttonHacer.Click += new System.EventHandler(this.ButtonHacer_Click);
             // 
-            // button2
+            // buttonCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(243, 193);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Location = new System.Drawing.Point(243, 193);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(91, 23);
+            this.buttonCancelar.TabIndex = 6;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.ButtonCancelar_Click);
             // 
             // errorProviderTransaccion
             // 
             this.errorProviderTransaccion.ContainerControl = this;
+            // 
+            // labelNombre
+            // 
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Location = new System.Drawing.Point(101, 22);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(22, 13);
+            this.labelNombre.TabIndex = 7;
+            this.labelNombre.Text = "NA";
             // 
             // TansaccionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(346, 228);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.labelNombre);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonHacer);
+            this.Controls.Add(this.comboBoxTarjetas);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxMonto);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelAc);
             this.Name = "TansaccionForm";
             this.Text = "TansaccionForm";
+            this.Load += new System.EventHandler(this.TansaccionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTransaccion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -126,13 +142,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelAc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxMonto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBoxTarjetas;
+        private System.Windows.Forms.Button buttonHacer;
+        private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.ErrorProvider errorProviderTransaccion;
+        private System.Windows.Forms.Label labelNombre;
     }
 }

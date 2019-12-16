@@ -79,5 +79,25 @@ namespace GestorBancarioUES
             return result;
         }
 
+        public static float numericResultSelect(string sql_command) {
+            float result = 0;
+            using (OleDbConnection conexion = new OleDbConnection(conectionString))
+            {
+                OleDbCommand comando = new OleDbCommand(sql_command);
+                comando.Connection = conexion;
+                try
+                {
+                    conexion.Open();
+                    result = float.Parse(comando.ExecuteScalar().ToString());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                // la conexion se cierra automaticamente por usar el bloque using
+            }
+            return result;
+        }
+
     }
 }

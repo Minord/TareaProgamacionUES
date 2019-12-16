@@ -81,7 +81,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Retiro.cs" />
-    <Compile Include="Tansaccion.cs" />
+    <Compile Include="Transaccion.cs" />
     <Compile Include="TansaccionForm.cs">
       <SubType>Form</SubType>
     </Compile>

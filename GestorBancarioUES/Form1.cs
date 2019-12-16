@@ -24,10 +24,6 @@ namespace GestorBancarioUES
             InitializeComponent();
         }
 
-        public void seleccionarUsuario(int usuario_id) {
-
-        }
-
         public void actualizarUsuarioActual() {
             if (usuarioActual != null)
             {
@@ -39,6 +35,7 @@ namespace GestorBancarioUES
                 labelEmail.Text = usuarioActual.email;
                 actualizarPuntos();
                 ActualizarTarjetas();
+                actualizarBalance();
             }
             else
             {
@@ -49,8 +46,11 @@ namespace GestorBancarioUES
                 labelTelefono.Text = "NA";
                 labelEmail.Text = "NA";
                 labelPuntos.Text = "NA";
+                labelBalance.Text = "NA";
                 dataGridViewTarjetas.DataSource = null;
                 dataGridViewTarjetas.Update();
+                dataGridViewTransacciones.DataSource = null;
+                dataGridViewTransacciones.Update();
             }
         }
 
@@ -67,6 +67,10 @@ namespace GestorBancarioUES
             labelPuntos.Text = usuarioActual.getPuntos().ToString();
         }
 
+        public void actualizarBalance() {
+            labelBalance.Text = Transaccion.getBanlancePorUsuarioID(usuarioActual.usuario_id).ToString("C");
+        }
+
         public void ActualizarTarjetas() {
             DataTable dt = Tarjeta.getTargetasTablePorUsuarioID(usuarioActual.usuario_id);
 
@@ -79,10 +83,23 @@ namespace GestorBancarioUES
                 dataGridViewTarjetas.DataSource = dt;
                 dataGridViewTarjetas.Update();
             }
+            ActualizarTansacciones();
         }
 
         public void ActualizarTansacciones() {
+            DataTable dt = Transaccion.getTransaccionesTablePorUsuarioID(usuarioActual.usuario_id);
 
+            if (dt == null)
+            {
+                //MessageBox.Show("No se  encontro ningun resultado");
+            }
+            else
+            {
+                dataGridViewTransacciones.DataSource = dt;
+                dataGridViewTransacciones.Update();
+            }
+            actualizarBalance();
+            actualizarPuntos();
         }
 
         /// <summary>
@@ -137,11 +154,17 @@ namespace GestorBancarioUES
 
         private void ButtonDeposito_Click(object sender, EventArgs e)
         {
+            TansaccionForm tf = new TansaccionForm(usuarioActual, "abono");
+            tf.ShowDialog();
+            ActualizarTansacciones();
 
         }
 
         private void ButtonRetiro_Click(object sender, EventArgs e)
         {
+            TansaccionForm tf = new TansaccionForm(usuarioActual, "retiro");
+            tf.ShowDialog();
+            ActualizarTansacciones();
 
         }
 
